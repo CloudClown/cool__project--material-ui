@@ -10,6 +10,9 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyle = makeStyles({
   field: {
@@ -50,6 +53,9 @@ const useStyle = makeStyles({
   checkbox: {
     marginTop: 20,
   },
+  // marginField: {
+  //   backgroundColor: 'pink',
+  // },
 });
 
 const SignIn = () => {
@@ -71,12 +77,31 @@ const SignIn = () => {
             </Typography>
             <form className={classes.field} noValidate autoComplete="off">
               <TextField
+                className={classes.marginField}
                 fullWidth
                 id="standard-basic"
-                label="e-mail"
+                label="Your name"
                 margin="dense"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PermIdentityIcon />
+                    </InputAdornment>
+                  ),
+                }}
               />
-              <TextField fullWidth id="standard-basic" label="password" />
+              <TextField
+                fullWidth
+                id="standard-basic"
+                label="password"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
               <FormControlLabel
                 control={<Checkbox defaultChecked />}
                 label="Remember me"
