@@ -8,33 +8,47 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyle = makeStyles({
   field: {
+    // backgroundColor: 'red',
     marginTop: 20,
   },
   btn: {
-    marginTop: 20,
+    marginTop: 30,
+    display: 'block',
   },
   paper: {
     color: 'pink',
-    // marginTop: 250,
-    // marginLeft: 450,
-    // margin: 'auto',
-    // alignItem: 'center',
-    // justifyContent: 'center',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'f5f5f5',
+    // backgroundColor: 'f5f5f5',
     width: 850,
     height: 500,
   },
-  center: {
+  root: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 150,
+    height: '100vh',
+    backgroundColor: 'pink',
+  },
+  register: {
+    // backgroundColor: 'red',
+    width: 350,
+    margin: 'auto',
+  },
+  signInImg: {
+    margin: 'auto',
+  },
+  bold: {
+    fontWeight: 400,
+  },
+  checkbox: {
+    marginTop: 20,
   },
 });
 
@@ -42,27 +56,38 @@ const SignIn = () => {
   const classes = useStyle();
 
   return (
-    <div className={classes.center}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={3} className={classes.grid}>
-          <Grid item>
+    <div className={classes.root}>
+      <Paper className={classes.paper} elevation={3}>
+        <Grid container spacing={3} sm={12}>
+          <Grid item className={classes.signInImg}>
             <img src={signInImg} alt="img" />
-            <Typography variant="body1" color="secondary">
+            <Typography align="center" variant="body1" color="secondary">
               <Link to="/register">Create an account</Link>
             </Typography>
           </Grid>
-          <Grid item>
-            <Typography variant="h2">Sign in</Typography>
+          <Grid item className={classes.register}>
+            <Typography variant="h2" className={classes.bold}>
+              Sign in
+            </Typography>
             <form className={classes.field} noValidate autoComplete="off">
-              <TextField fullWidth id="standard-basic" label="e-mail" />
+              <TextField
+                fullWidth
+                id="standard-basic"
+                label="e-mail"
+                margin="dense"
+              />
               <TextField fullWidth id="standard-basic" label="password" />
-
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Remember me"
+                className={classes.checkbox}
+              />
               <Button
                 className={classes.btn}
                 variant="contained"
                 color="primary"
               >
-                Submit
+                Sign in
               </Button>
             </form>
           </Grid>
