@@ -10,6 +10,11 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockIcon from '@material-ui/icons/Lock';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const useStyle = makeStyles({
   field: {
@@ -44,6 +49,9 @@ const useStyle = makeStyles({
     width: 350,
     margin: 'auto',
   },
+  marginLabel: {
+    marginBottom: 10,
+  },
 });
 
 const Register = () => {
@@ -56,13 +64,56 @@ const Register = () => {
           <Grid item className={classes.register}>
             <Typography variant="h2">Sign Up</Typography>
             <form className={classes.field} noValidate autoComplete="off">
-              <TextField fullWidth id="standard-basic" label="Your name" />
-              <TextField fullWidth id="standard-basic" label="Your Email" />
-              <TextField fullWidth id="standard-basic" label="Password" />
+              <TextField
+                className={classes.marginLabel}
+                fullWidth
+                id="standard-basic"
+                label="Your name"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PermIdentityIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                className={classes.marginLabel}
+                fullWidth
+                id="standard-basic"
+                label="Your Email"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MailOutlineIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                className={classes.marginLabel}
+                fullWidth
+                id="standard-basic"
+                label="Password"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
               <TextField
                 fullWidth
                 id="standard-basic"
                 label="Repeat your password"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockOutlinedIcon />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <FormControlLabel
                 control={<Checkbox defaultChecked />}

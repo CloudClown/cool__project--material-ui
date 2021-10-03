@@ -10,8 +10,8 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockIcon from '@material-ui/icons/Lock';
 
 const useStyle = makeStyles({
@@ -53,9 +53,9 @@ const useStyle = makeStyles({
   checkbox: {
     marginTop: 20,
   },
-  // marginField: {
-  //   backgroundColor: 'pink',
-  // },
+  marginField: {
+    marginBottom: 10,
+  },
 });
 
 const SignIn = () => {
@@ -80,12 +80,12 @@ const SignIn = () => {
                 className={classes.marginField}
                 fullWidth
                 id="standard-basic"
-                label="Your name"
+                label="mail"
                 margin="dense"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <PermIdentityIcon />
+                      <MailOutlineIcon />
                     </InputAdornment>
                   ),
                 }}
